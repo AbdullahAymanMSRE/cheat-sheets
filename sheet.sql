@@ -152,9 +152,43 @@ ON UPDATE CASCADE;
 --> to delete the primary key constraint:
 ALTER TABLE tableName DROP FOREIGN KEY columnName;
 
+------------------------------------------
+--* String Functions
 
+-- 01. LEFT(string, n): gets first left n characters
+SELECT LEFT(columnName, 3) FROM tableName;
 
+-- 02. RIGHT(string, n): same as LEFT but from right.
+-- 03. MID(string, p, n): gets some characters from middle of text where p is the start position and n is the length
+-- 04. LENGTH(string): gets number of bytes used by a string
+-- 05. CHAR_LENGTH(string) = CHARACTER_LENGTH(columnName): gets number of characters in a string
+SELECT columnName FROM tableName ORDER BY CHAR_LENGTH(columnName);
 
+-- 06. LCASE(string) = LOWER(columnName): lower all characters.
+-- 07. UCASE(string) = UPPER(columnName): upper all characters.
+-- 08. REPEATE(string, n): repeats a string n times.
+-- 09. REPLACE(string, from, to): replaces all occurences of 'from' to 'to'
+-- 10. REVERSE(string)
+-- 11. CONCAT(string, string, ...): concatenation
+-- 12. CONCAT_WS(separator, string, string, ...): concatenation with separator
+-- 13. INSERT(string, position, length, string_to_be_inserted)
+-- 14. TRIM(LEADING/TRAILING/BOTH remove_string FROM string): first two parameters is optional and defaults are both ' '
+-- 15. LTRIM(string): left trim
+-- 16. RTRIM(string): right trim
+-- 17. LPAD(string, length, padding_text): left padding, if padding_text is empty, strings whose length is less than the required length will return null 
+-- 18. RPAD(string, length, padding_text): right padding, same as LPAD
+
+------------------------------------------
+--* Math Functions
+
+-- 1. CEIL(number)
+-- 2. FLOOR(number)
+-- 3. ROUND(number, num_of_decimals)
+-- 4. MOD(dividend, divisor): modulus
+-- 5. TRUNCATE(number, num_of_decimals): does not round but deletes decimals after num_of_decimals count
+SELECT TRUNCATE(2.4599, 2); -- returns 2.45
+
+-- 6. POW(number, power)
 
 
 
