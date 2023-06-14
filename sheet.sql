@@ -190,6 +190,46 @@ SELECT TRUNCATE(2.4599, 2); -- returns 2.45
 
 -- 6. POW(number, power)
 
+------------------------------------------
+--* Date & Time Functions
+
+-- 01. CURTIME()/CURRENT_TIME()/CURRENT_TIME: time in format HH:MM:SS
+-- 02. CURDATE()/CURRENT_DATE()/CURRENT_DATE: date in format YYYY-MM-DD
+-- 03. NOW()/CURRENT_TIMESTAMP()/CURRENT_TIMESTAMP: date & time in format YYYY-MM-DD HH:MM:SS
+-- 04. DAYNAME(date)
+-- 05. DAYOFMONTH(date)/DAY(date) 
+-- 06. DAYOFWEEK(date)
+-- 07. MONTH(date)  
+-- 08. MONTHNAME(date)
+-- 09. HOUR(datetime)
+-- 10. MINUTE(date)
+-- 11. DATEDIFF(date1, date2): date difference
+-- 12. LAST_DAY(date): date of the last day in a month
+-- 13. DATE_ADD(date, INTERVAL expression time_unit): add interval to specific date
+SELECT DATE_ADD('2017-2-12', INTERVAL 10 DAY);
+
+-- 14. DATE_SUB(date, INTERVAL expression time_unit): subtract interval to specific date
+
+------------------------------------------
+--* Comparison Functions
+
+-- 1. BETWEEN AND, NOT BETWEEN AND
+SELECT * FROM tableName WHERE columnName BETWEEN 1 AND 10;
+SELECT * FROM tableName WHERE columnName BETWEEN DATE_SUB(CURDATE(), INTERVAL 1 MONTH) AND CURDATE();
+
+-- 2. IN, NOT IN
+SELECT * FROM tableName WHERE columnName NOT IN (1, 3, 5);
+
+-- 3. LIKE, NOT LIKE
+---> the % wildcard represents any number of characters, while _ represents a single character.
+SELECT * FROM tableName WHERE columnName LIKE 'abd%'; --> matches 'abdullah' , 'abdelrahman', ..
+
+------------------------------------------
+--* Comparison Operators
+
+-- 1. =
+-- 2. >, >=, <, <=
+-- 3. !=, <>: both means not equal
 
 
 
