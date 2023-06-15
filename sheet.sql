@@ -231,6 +231,77 @@ SELECT * FROM tableName WHERE columnName LIKE 'abd%'; --> matches 'abdullah' , '
 -- 2. >, >=, <, <=
 -- 3. !=, <>: both means not equal
 
+------------------------------------------
+--* Logical Operators
+
+-- 1. AND / &&
+-- 2. OR / ||
+-- 3. NOT / !
+-- 4. XOR 
+
+------------------------------------------
+--* Flow Control Functions
+
+-- 1. IF(condition, true, false)
+SELECT name, IF(grade > 50, 'Congratulations', 'Nice try!') AS result FROM students;
+
+-- 2. 
+-->CASE
+---> WHEN expression THEN result
+---> WHEN expression2 THEN result2
+---> ELSE result3
+---> END
+SELECT name,
+CASE
+	WHEN grade >= 97 THEN 'A+'
+	WHEN grade >= 93 AND grade < 97 THEN 'A'
+	ELSE 'F'
+END
+AS result
+FROM students;
+
+-->CASE variable
+---> WHEN value THEN result
+---> WHEN value2 THEN result2
+---> ELSE result3
+---> END
+SELECT name,
+CASE grade
+	WHEN 97 THEN 'A+'
+	WHEN 93 THEN 'A'
+	ELSE 'Unknown'
+END
+AS result
+FROM students;
+
+------------------------------------------
+--* Joins
+SELECT * FROM users, langs WHERE users.lang_id = langs.id;
+
+-- 1. INNER JOIN: selects only data that matches from both tables.
+SELECT 
+	u.name user_name,
+	l.name language_name
+FROM users u
+INNER JOIN languages l
+ON u.language_id = l.id;
+
+-- 2. LEFT JOIN: selects all data from left table and only data that matches from right table
+-- 3. RIGHT JOIN: selects all data from right table and only data that matches from left table
+
+------------------------------------------
+
+--> ORDER BY
+SELECT * FROM tableName ORDER BY columnName, column2Name;
+
+--> GROUP BY: groups data with same value
+SELECT * FROM tableName GROUP BY columnName;
+
+
+
+
+
+
 
 
 
