@@ -135,3 +135,57 @@ to include notes in the push or pull commands use --notes flag.
 ```terminal
   git mv <source> <destination>
 ```
+
+### Branching and Merging
+* Branch: can be used to:
+  1. List branches
+  ```terminal
+  git branch
+  ```
+  2. Create new branch
+  ```terminal
+  git branch <branch-name>
+  ```
+  3. Rename a branch
+  ```terminal
+  git branch -m <old-branch-name> <new-branch-name>
+  ```
+  4. Delete a branch
+  ```terminal
+  git branch -d <branch-name>
+  ```
+* Checkout: can be used to:
+  1. Switch to a branch
+  ```terminal
+  git checkout <branch-name>
+  ```
+  add -b flag to create the branch and switch to it
+  2. Discard changes to a file
+  ```terminal
+  git checkout -- <file>
+  ```
+  3. Restore files from a specific commit
+  ```terminal
+  git checkout <commit> -- <file>
+  ```
+  4. Detach HEAD and checkout a specific commit
+  ```terminal
+  git checkout <commit>
+  ```
+  This command detaches the HEAD pointer from any branch and directly points to the specified <commit>.
+  note: to undo this command write `git switch -`
+  5. Switch to a remote branch
+  ```terminal
+  git checkout <remote>/<branch-name>
+  ```
+* Switch: can be used to:
+  1. switch to a branch
+  ```terminal
+  git switch <branch-name>
+  ```
+  add -c flag to create the branch adn switch to it
+  2. Restore files from a specific commit
+  ```terminal
+  git switch <commit> -- <file>
+  ```
+  if '-- <file>' is removed, it will Detach HEAD and switch to a specific commit. to  undo that write `git switch -` 
