@@ -9,6 +9,7 @@
 8. HEAD: a special pointer that represents the current commit or the current branch in your repository. It is essentially a reference to the tip of the branch you are currently on.
 9. HEAD~<number>: commit before the head by <number>, for example Head~1 is the commit before the head.
 10. Lightweight tags: pointers to specific commits and do not contain any additional metadata.
+![alt text](https://cdn.hashnode.com/res/hashnode/image/upload/v1644871667728/U8uUkYIQa.png "Working Directory/staging area/repo")
 ## Commands
 ### Setup and Config
 
