@@ -8,6 +8,7 @@
 7. Pull: pull changes from remote repo to local.
 8. HEAD: a special pointer that represents the current commit or the current branch in your repository. It is essentially a reference to the tip of the branch you are currently on.
 9. HEAD~<number>: commit before the head by <number>, for example Head~1 is the commit before the head.
+10. Lightweight tags: pointers to specific commits and do not contain any additional metadata.
 ## Commands
 ### Setup and Config
 
@@ -188,4 +189,50 @@ to include notes in the push or pull commands use --notes flag.
   ```terminal
   git switch <commit> -- <file>
   ```
-  if '-- <file>' is removed, it will Detach HEAD and switch to a specific commit. to  undo that write `git switch -` 
+  if '-- <file>' is removed, it will Detach HEAD and switch to a specific commit. to  undo that write `git switch -`
+* Merge: Join two or more development histories together:
+  ```terminal
+  # Switch to the branch where you want to merge changes
+  git checkout <branch-to-merge-into>
+  # Merge changes from another branch into the current branch
+  git merge <branch-to-merge>
+  # If you encounter issues during a merge and want to cancel it, you can use:
+  git merge --abort
+  ```
+  When Git encounters conflicting changes during a merge, it pauses the merge process and highlights the conflicting sections in the affected files. You need to manually edit and resolve the conflicts by choosing which changes to keep. After resolving conflicts, save the files and stage them using git add, then run git merge --continue to complete the merge commit.
+  It's important to note that the git merge command creates a new commit that represents the merge result.
+* Log: show commit logs.
+  ```terminal
+  git log
+  ```
+* Stash: Stash the changes in a dirty working directory away
+  ```terminal
+  git stash
+  # this command saves the current changes in your working directory in a new stash, and wil revert changes in the working directory
+  ```
+  to list stashed saved use:
+  ```terminal
+  git stash list
+  # to apply specific stash:
+  git stash apply <stash>
+  #<stash> is optional and default is the last stash
+  # to apply a stash and remove it use:
+  git stash pop <stash> #default also is the last one.
+  # to discard a stash
+  git discard <stash>
+  ```
+* Tag: Create, list, delete or verify a tag object 
+  ```terminal
+  # List tags:
+  git tag
+  # Create Lightweight tag:
+  git tag <tag-name>
+  # Create annotated tag:
+  git tag <tag-name> -m "tag message"
+  # Create tag for specific commit:
+  git tag <tag-name> <commit>
+  # Show information about a tag:
+  git show <tag-name>
+  # By default, Git does not automatically push tags to remote repositories, to push tages:
+  git push --tags
+  ```
