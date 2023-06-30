@@ -95,7 +95,7 @@ to include notes in the push or pull commands use --notes flag.
   ```
   4. restore files from a specific branch or tag.
   ```terminal
-  git restore --source=feature-branch -- file.txt
+  git restore --source=feature-branch <files>
   ```
   Note: in all of the last commands you can use dot "." instead of <files> to implement the command for all files
 * Reset:
