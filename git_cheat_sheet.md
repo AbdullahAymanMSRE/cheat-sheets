@@ -89,18 +89,15 @@ to include notes in the push or pull commands use --notes flag.
   ```terminal
   git restore <files>
   ```
-  3. restore a specific file from a previous commit.
+  3. restore file to the state of a specific commit.
   ```terminal
-  git restore <commit> -- <files>
+  git restore --source=<commit> <files>
   ```
-  4. restore all files to the state of a specific commit.
-  ```terminal
-  git restore --source=<commit> .
-  ```
-  5. restore files from a specific branch or tag.
+  4. restore files from a specific branch or tag.
   ```terminal
   git restore --source=feature-branch -- file.txt
   ```
+  Note: in all of the last commands you can use dot "." instead of <files> to implement the command for all files
 * Reset:
   1. Move the branch pointer to the specified commit, preserving the changes in the staging area and working directory. The changes from subsequent commits become unstaged, allowing you to recommit them.
   ```terminal
