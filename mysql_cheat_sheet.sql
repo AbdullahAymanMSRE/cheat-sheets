@@ -297,8 +297,30 @@ SELECT * FROM tableName ORDER BY columnName, column2Name;
 --> GROUP BY: groups data with same value
 SELECT * FROM tableName GROUP BY columnName;
 
+------------------------------------------
+--* Stored Procedures
+--> create a stored procedure
+DELIMITER //
 
+CREATE PROCEDURE GetAllProducts()
+BEGIN
+	SELECT *  FROM products;
+	-- code inside procedure
+END //
 
+DELIMITER ;
+
+--> to call a procedure
+call GetAllProducts();
+
+--> create procedure with parameter called var of type integer
+
+CREATE PROCEDURE GetAllProducts2(IN var INT)
+BEGIN
+	SELECT *  FROM products LIMIT var;
+END //
+
+DELIMITER ;
 
 
 
