@@ -159,9 +159,9 @@ to include notes in the push or pull commands use --notes flag.
   git checkout <branch-name>
   ```
   add -b flag to create the branch and switch to it.
-  2. Discard changes to a file
+  2. Overwrite working tree with the contents in the index (discard changes).
   ```terminal
-  git checkout -- <file>
+  git checkout <files>
   ```
   3. Restore files from a specific commit
   ```terminal
