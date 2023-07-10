@@ -141,7 +141,7 @@ to include notes in the push or pull commands use --notes flag.
   ```terminal
   git branch
   ```
-  2. Create new branch
+  2. Create a new branch
   ```terminal
   git branch <branch-name>
   ```
@@ -158,7 +158,7 @@ to include notes in the push or pull commands use --notes flag.
   ```terminal
   git checkout <branch-name>
   ```
-  add -b flag to create the branch and switch to it
+  add -b flag to create the branch and switch to it.
   2. Discard changes to a file
   ```terminal
   git checkout -- <file>
