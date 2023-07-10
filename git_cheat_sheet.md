@@ -9,6 +9,7 @@
 8. HEAD: a special pointer that represents the current commit or the current branch in your repository. It is essentially a reference to the tip of the branch you are currently on.
 9. HEAD~<number>: commit before the head by <number>, for example Head~1 is the commit before the head.
 10. Lightweight tags: pointers to specific commits and do not contain any additional metadata.
+11. Stale branch: a remote-tracking branch that no longer tracks anything because the actual branch in the remote repository has been deleted.
 ![alt text](https://cdn.hashnode.com/res/hashnode/image/upload/v1644871667728/U8uUkYIQa.png "Working Directory/staging area/repo")
 ## Commands
 ### Setup and Config
@@ -34,10 +35,18 @@ git config --global color.ui auto
 ```
 
 ### Getting and Creating Projects
+* To list remote repos:
+```cmd
+git remote -v
+```
 
-* To link the local repository to an empty GitHub repository 
+* To link the local repository to an empty GitHub repository. After executing this command the [url] will be saved as a remote repo with the name origin.
 ```cmd
 git remote add origin [url]
+```
+* To change the url of an existing remote use:
+```cmd
+git remote set-url origin [new-url]
 ```
 
 * clone a repository into a directory
@@ -153,6 +162,11 @@ to include notes in the push or pull commands use --notes flag.
   ```terminal
   git branch -d <branch-name>
   ```
+  5. Show branches that has/has not been merged to current branch
+  ```terminal
+  git branch --merged
+  git branch --no-merged  
+  ```
 * Checkout: can be used to:
   1. Switch to a branch
   ```terminal
@@ -233,4 +247,15 @@ to include notes in the push or pull commands use --notes flag.
   git show <tag-name>
   # By default, Git does not automatically push tags to remote repositories, to push tages:
   git push --tags
+  ```
+### Sharing and Updating Projects
+* Fetch: retrieve and download the latest changes from a remote repository without merging them into your local branches. updates the remote tracking branches in your local repository. These branches, usually named origin/<branch-name>. you can examine the fetched changes using commands like `git log origin/<branch-name>`
+  ```terminal
+  git fetch <remote> <branch>
+  ```
+  <remote> and <branch> are optional.
+### Inspection and Comparison
+* Show:to display detailed information about a specific Git object, such as a commit, tag, or tree.
+  ```terminal
+  git show <object>
   ```
