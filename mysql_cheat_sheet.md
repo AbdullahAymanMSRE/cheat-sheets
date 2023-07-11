@@ -382,7 +382,7 @@ call GetAllProducts();
 
 ### create procedure with parameter called var of type integer
 ```sql
-
+DELIMITER //
 CREATE PROCEDURE GetAllProducts2(IN var INT)
 BEGIN
 	SELECT *  FROM products LIMIT var;
