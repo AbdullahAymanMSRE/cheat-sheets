@@ -354,13 +354,15 @@ SELECT * FROM tableName ORDER BY columnName, column2Name;
 ```
 
 ## GROUP BY:
- groups data with same value, it returns one row for each group. In other words, it reduces the number of rows in the result set.
+ groups data with same value, it returns one row for each group. In other words, it reduces the number of rows in the result set.you often use the GROUP BY clause with aggregate functions such as SUM, AVG, MAX, MIN, and COUNT. The aggregate function that appears in the SELECT clause provides the information of each group.
 ```sql
 SELECT * FROM tableName GROUP BY columnName;
 ```
 
 ![alt text](https://www.mysqltutorial.org/wp-content/uploads/2021/07/MySQL-Group-By.svg "order of select clauses")
-
+### Having
+it is used in the SELECT statement to specify filter conditions for a group of rows or aggregates.
+Notice that the HAVING clause applies a filter condition to each group of rows, while the WHERE clause applies the filter condition to each individual row.
 ## Stored Procedures
 ### create a stored procedure
 ```sql
