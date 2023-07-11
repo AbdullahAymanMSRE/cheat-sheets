@@ -289,7 +289,24 @@ SELECT * FROM tableName WHERE columnName LIKE 'abd%'; --> matches 'abdullah' , '
 2. OR / ||
 3. NOT / !
 4. XOR 
-
+## Distinct
+When querying data from a table, you may get duplicate rows. To remove these duplicate rows, you use the DISTINCT clause in the SELECT statement.
+```sql
+SELECT DISTINCT state FROM customers;
+```
+### DISTINCT with multiple columns
+the DISTINCT clause will use the combination of values in these columns to determine the uniqueness of the row in the result set.
+```sql
+SELECT DISTINCT
+    state, city
+FROM
+    customers
+WHERE
+    state IS NOT NULL
+ORDER BY 
+    state, 
+    city;
+```
 ## Flow Control Functions
 
 1. IF(condition, true, false)
@@ -358,6 +375,7 @@ SELECT * FROM tableName ORDER BY columnName, column2Name;
 ```sql
 SELECT * FROM tableName GROUP BY columnName;
 ```
+If you use the GROUP BY clause in the SELECT statement without using aggregate functions, the GROUP BY clause behaves like the DISTINCT clause.
 
 ![alt text](https://www.mysqltutorial.org/wp-content/uploads/2021/07/MySQL-Group-By.svg "order of select clauses")
 ### Having
