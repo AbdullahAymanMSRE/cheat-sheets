@@ -1,13 +1,18 @@
---* DATABASES
--- to create a database:
+## DATABASES
+### to create a database:
+```sql
 CREATE DATABASE IF NOT EXISTS dbName;
+```
 
--- to delete a database:
+### to delete a database:
+```sql
 DROP DATABASE IF EXISTS dbName;
+```
 
--- to select specific database:
+### to select specific database:
+```sql
 USE dbName;
-
+```
 -- to list extisting databases:
 SHOW DATABASES;
 
@@ -294,10 +299,12 @@ ON u.language_id = l.id;
 --> ORDER BY
 SELECT * FROM tableName ORDER BY columnName, column2Name;
 
---> GROUP BY: groups data with same value
+--> GROUP BY: groups data with same value, it returns one row for each group. In other words, it reduces the number of rows in the result set.
 SELECT * FROM tableName GROUP BY columnName;
 
 ------------------------------------------
+![alt text](https://www.mysqltutorial.org/wp-content/uploads/2021/07/MySQL-Group-By.svg "order of select clauses")
+
 --* Stored Procedures
 --> create a stored procedure
 DELIMITER //
