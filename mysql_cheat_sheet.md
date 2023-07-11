@@ -206,21 +206,23 @@ SELECT LEFT(columnName, 3) FROM tableName;
 3. MID(string, p, n): gets some characters from middle of text where p is the start position and n is the length
 4. LENGTH(string): gets number of bytes used by a string
 5. CHAR_LENGTH(string) = CHARACTER_LENGTH(columnName): gets number of characters in a string
+```sql
 SELECT columnName FROM tableName ORDER BY CHAR_LENGTH(columnName);
+```
 
-6. LCASE(string) = LOWER(columnName): lower all characters.
-7. UCASE(string) = UPPER(columnName): upper all characters.
-8. REPEATE(string, n): repeats a string n times.
-9. REPLACE(string, from, to): replaces all occurences of 'from' to 'to'
-10. REVERSE(string)
-11. CONCAT(string, string, ...): concatenation
-12. CONCAT_WS(separator, string, string, ...): concatenation with separator
-13. INSERT(string, position, length, string_to_be_inserted)
-14. TRIM(LEADING/TRAILING/BOTH remove_string FROM string): first two parameters is optional and defaults are both ' '
-15. LTRIM(string): left trim
-16. RTRIM(string): right trim
-17. LPAD(string, length, padding_text): left padding, if padding_text is empty, strings whose length is less than the required length will return null 
-18. RPAD(string, length, padding_text): right padding, same as LPAD.
+7. LCASE(string) = LOWER(columnName): lower all characters.
+8. UCASE(string) = UPPER(columnName): upper all characters.
+9. REPEATE(string, n): repeats a string n times.
+10. REPLACE(string, from, to): replaces all occurences of 'from' to 'to'
+11. REVERSE(string)
+12. CONCAT(string, string, ...): concatenation
+13. CONCAT_WS(separator, string, string, ...): concatenation with separator
+14. INSERT(string, position, length, string_to_be_inserted)
+15. TRIM(LEADING/TRAILING/BOTH remove_string FROM string): first two parameters is optional and defaults are both ' '
+16. LTRIM(string): left trim
+17. RTRIM(string): right trim
+18. LPAD(string, length, padding_text): left padding, if padding_text is empty, strings whose length is less than the required length will return null 
+19. RPAD(string, length, padding_text): right padding, same as LPAD.
 
 ## Math Functions
 
