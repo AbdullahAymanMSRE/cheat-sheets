@@ -208,6 +208,7 @@ to include notes in the push or pull commands use --notes flag.
   ```terminal
   git log
   ```
+  --oneline flag to show each commit in one line.
 ### Stash: Stash the changes in a dirty working directory away
   ```terminal
   git stash
@@ -306,7 +307,49 @@ to display detailed information about a specific Git object, such as a commit, t
   git show <object>
   ```
 ### Describe:
+The result is a "human-readable" object name which can also be used to identify the commit to other git commands.
+```git
+git describe <commit>
+```
+
+The output of `git describe` typically consists of the following components:
+
+1. The closest annotated tag name.
+2. The number of additional commits beyond the annotated tag.
+3. An abbreviated commit hash.
 
 ## Patching
 ### rebase:
+apply a sequence of commits on top of another branch. It allows you to incorporate changes from one branch into another, potentially rewriting the commit history.
+
+Assume the following history exists and the current branch is "topic":
+
+          A---B---C topic
+         /
+    D---E---F---G master
+
+From this point, the result of the following command:
+```git
+git rebase <branch>
+```
+would be:
+
+                    A'--B'--C' topic
+                 /
+    D---E---F---G master
+
+In case of conflict, `git rebase` will stop at the first problematic commit and leave conflict markers in the tree, After resolving the conflict manually and updating the index with the desired resolution, you can continue the rebasing process with
+```git
+git rebase --continue
+```
+Alternatively, you can undo the git rebase with
+```git
+git rebase --abort
+```
+
 ### revert:
+Revert(delete) some existing commits
+```git
+git revert <commit1> <commit2> ...
+```
+can also use `--continue` and `--abort` for dealing with conflicts like `rebase`
