@@ -206,21 +206,23 @@ SELECT LEFT(columnName, 3) FROM tableName;
 3. MID(string, p, n): gets some characters from middle of text where p is the start position and n is the length
 4. LENGTH(string): gets number of bytes used by a string
 5. CHAR_LENGTH(string) = CHARACTER_LENGTH(columnName): gets number of characters in a string
+```sql
 SELECT columnName FROM tableName ORDER BY CHAR_LENGTH(columnName);
+```
 
-6. LCASE(string) = LOWER(columnName): lower all characters.
-7. UCASE(string) = UPPER(columnName): upper all characters.
-8. REPEATE(string, n): repeats a string n times.
-9. REPLACE(string, from, to): replaces all occurences of 'from' to 'to'
-10. REVERSE(string)
-11. CONCAT(string, string, ...): concatenation
-12. CONCAT_WS(separator, string, string, ...): concatenation with separator
-13. INSERT(string, position, length, string_to_be_inserted)
-14. TRIM(LEADING/TRAILING/BOTH remove_string FROM string): first two parameters is optional and defaults are both ' '
-15. LTRIM(string): left trim
-16. RTRIM(string): right trim
-17. LPAD(string, length, padding_text): left padding, if padding_text is empty, strings whose length is less than the required length will return null 
-18. RPAD(string, length, padding_text): right padding, same as LPAD.
+7. LCASE(string) = LOWER(columnName): lower all characters.
+8. UCASE(string) = UPPER(columnName): upper all characters.
+9. REPEATE(string, n): repeats a string n times.
+10. REPLACE(string, from, to): replaces all occurences of 'from' to 'to'
+11. REVERSE(string)
+12. CONCAT(string, string, ...): concatenation
+13. CONCAT_WS(separator, string, string, ...): concatenation with separator
+14. INSERT(string, position, length, string_to_be_inserted)
+15. TRIM(LEADING/TRAILING/BOTH remove_string FROM string): first two parameters is optional and defaults are both ' '
+16. LTRIM(string): left trim
+17. RTRIM(string): right trim
+18. LPAD(string, length, padding_text): left padding, if padding_text is empty, strings whose length is less than the required length will return null 
+19. RPAD(string, length, padding_text): right padding, same as LPAD.
 
 ## Math Functions
 
@@ -287,7 +289,24 @@ SELECT * FROM tableName WHERE columnName LIKE 'abd%'; --> matches 'abdullah' , '
 2. OR / ||
 3. NOT / !
 4. XOR 
-
+## Distinct
+When querying data from a table, you may get duplicate rows. To remove these duplicate rows, you use the DISTINCT clause in the SELECT statement.
+```sql
+SELECT DISTINCT state FROM customers;
+```
+### DISTINCT with multiple columns
+the DISTINCT clause will use the combination of values in these columns to determine the uniqueness of the row in the result set.
+```sql
+SELECT DISTINCT
+    state, city
+FROM
+    customers
+WHERE
+    state IS NOT NULL
+ORDER BY 
+    state, 
+    city;
+```
 ## Flow Control Functions
 
 1. IF(condition, true, false)
@@ -352,13 +371,16 @@ SELECT * FROM tableName ORDER BY columnName, column2Name;
 ```
 
 ## GROUP BY:
- groups data with same value, it returns one row for each group. In other words, it reduces the number of rows in the result set.
+ groups data with same value, it returns one row for each group. In other words, it reduces the number of rows in the result set.you often use the GROUP BY clause with aggregate functions such as SUM, AVG, MAX, MIN, and COUNT. The aggregate function that appears in the SELECT clause provides the information of each group.
 ```sql
 SELECT * FROM tableName GROUP BY columnName;
 ```
+If you use the GROUP BY clause in the SELECT statement without using aggregate functions, the GROUP BY clause behaves like the DISTINCT clause.
 
 ![alt text](https://www.mysqltutorial.org/wp-content/uploads/2021/07/MySQL-Group-By.svg "order of select clauses")
-
+### Having
+it is used in the SELECT statement to specify filter conditions for a group of rows or aggregates.
+Notice that the HAVING clause applies a filter condition to each group of rows, while the WHERE clause applies the filter condition to each individual row.
 ## Stored Procedures
 ### create a stored procedure
 ```sql
@@ -380,7 +402,7 @@ call GetAllProducts();
 
 ### create procedure with parameter called var of type integer
 ```sql
-
+DELIMITER //
 CREATE PROCEDURE GetAllProducts2(IN var INT)
 BEGIN
 	SELECT *  FROM products LIMIT var;
