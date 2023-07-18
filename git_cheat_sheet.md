@@ -1,4 +1,4 @@
-## keywords
+# keywords
 1. Repository: a central location where you can store and organize your project's files, including the source code, documentation, images, and any other assets. It serves as a version-controlled repository for tracking changes, collaborating with others, and managing the development of your project.
 2. Branch: a lightweight movable pointer that represents an independent line of development within a repository. It allows developers to isolate changes, work on new features or bug fixes, and experiment with different ideas without impacting the main codebase. Branches in Git enable parallel development, collaboration, and easy management of different tasks.
 3. Local repository: a repository that is stored on your local machine. It resides on your computer's hard drive or a networked file system that you have access to. When you clone a remote repository or initialize a new repository on your machine, it becomes a local repository.
@@ -11,8 +11,8 @@
 10. Lightweight tags: pointers to specific commits and do not contain any additional metadata.
 11. Stale branch: a remote-tracking branch that no longer tracks anything because the actual branch in the remote repository has been deleted.
 ![alt text](https://cdn.hashnode.com/res/hashnode/image/upload/v1644871667728/U8uUkYIQa.png "Working Directory/staging area/repo")
-## Commands
-### Setup and Config
+# Commands
+## Setup and Config
 
 * To turn an existing directory into a new Git repository.
 ```cmd
@@ -34,26 +34,12 @@ git config --global user.email "[email address]"
 git config --global color.ui auto
 ```
 
-### Getting and Creating Projects
-* To list remote repos:
-```cmd
-git remote -v
-```
-
-* To link the local repository to an empty GitHub repository. After executing this command the [url] will be saved as a remote repo with the name origin.
-```cmd
-git remote add origin [url]
-```
-* To change the url of an existing remote use:
-```cmd
-git remote set-url origin [new-url]
-```
-
+## Getting and Creating Projects
 * clone a repository into a directory
 ```cmd
 git clone [url] [directory]
 ```
-### Basic Snapshotting
+## Basic Snapshotting
 * Add file(s) contents from working tree to the index (staging area)
 ```cmd
 git add [file]
@@ -73,12 +59,17 @@ git diff <branch-name-1> <branch-name-2>
 git diff --staged
 ```
 
-* Record changes saved in the saging area(index) to the repository
-```cmd
-git commit -m "comment"
-```
+### Commit: some of its use cases are
+  1. Record changes saved in the saging area(index) to the repository
+  ```cmd
+  git commit -m "comment"
+  ```
+  2. Add changes to the previous commit or modify the commit message
+  ```cmd
+  git commit --amend 
+  ```
 
-* notes
+### notes
 ```terminal
 # add notes to commit
 git notes add "note" <commit>
@@ -89,7 +80,7 @@ git notes list
 ```
 to include notes in the push or pull commands use --notes flag.
 
-* Restore: can be used to:
+### Restore: can be used to:
   1. undo the effect of git add (unstage changes).
   ```terminal
   git restore --staged <files>
@@ -107,7 +98,7 @@ to include notes in the push or pull commands use --notes flag.
   git restore --source=<branch> <files>
   ```
   Note: in all of the last commands you can use dot "." instead of <files> to implement the command for all files
-* Reset:
+### Reset:
   1. Move the branch pointer to the specified commit, preserving the changes in the staging area and working directory. The changes from subsequent commits become unstaged, allowing you to recommit them.
   ```terminal
   git reset --soft <commit>
@@ -129,7 +120,7 @@ to include notes in the push or pull commands use --notes flag.
   ```terminal
   git reset
   ```
-* Rm: can be used to:
+### Rm: can be used to:
   1. Remove files from the working tree and from the index
   ```terminal
   git rm <file>
@@ -139,13 +130,13 @@ to include notes in the push or pull commands use --notes flag.
   git rm --cached <file>
   ```
   the -r tag means recursively which is used to remove a directory with all its contents.
-* move or rename a file or directory in both the working directory and the Git repository. It is a convenient way to perform a file or directory rename while preserving the file's history.
+### move or rename a file or directory in both the working directory and the Git repository. It is a convenient way to perform a file or directory rename while preserving the file's history.
 ```terminal
   git mv <source> <destination>
 ```
 
 ### Branching and Merging
-* Branch: can be used to:
+### Branch: can be used to:
   1. List branches
   ```terminal
   git branch
@@ -167,7 +158,7 @@ to include notes in the push or pull commands use --notes flag.
   git branch --merged
   git branch --no-merged  
   ```
-* Checkout: can be used to:
+### Checkout: can be used to:
   1. Switch to a branch
   ```terminal
   git checkout <branch-name>
@@ -191,7 +182,7 @@ to include notes in the push or pull commands use --notes flag.
   ```terminal
   git checkout <remote>/<branch-name>
   ```
-* Switch: can be used to:
+### Switch: can be used to:
   1. switch to a branch
   ```terminal
   git switch <branch-name>
@@ -202,7 +193,7 @@ to include notes in the push or pull commands use --notes flag.
   git switch <commit> -- <file>
   ```
   if '-- <file>' is removed, it will Detach HEAD and switch to a specific commit. to  undo that write `git switch -`
-* Merge: Join two or more development histories together:
+### Merge: Join two or more development histories together:
   ```terminal
   # Switch to the branch where you want to merge changes
   git checkout <branch-to-merge-into>
@@ -213,11 +204,11 @@ to include notes in the push or pull commands use --notes flag.
   ```
   When Git encounters conflicting changes during a merge, it pauses the merge process and highlights the conflicting sections in the affected files. You need to manually edit and resolve the conflicts by choosing which changes to keep. After resolving conflicts, save the files and stage them using git add, then run git merge --continue to complete the merge commit.
   It's important to note that the git merge command creates a new commit that represents the merge result.
-* Log: show commit logs.
+### Log: show commit logs.
   ```terminal
   git log
   ```
-* Stash: Stash the changes in a dirty working directory away
+### Stash: Stash the changes in a dirty working directory away
   ```terminal
   git stash
   # this command saves the current changes in your working directory in a new stash, and wil revert changes in the working directory
@@ -233,7 +224,7 @@ to include notes in the push or pull commands use --notes flag.
   # to discard a stash
   git discard <stash>
   ```
-* Tag: Create, list, delete or verify a tag object 
+### Tag: Create, list, delete or verify a tag object 
   ```terminal
   # List tags:
   git tag
@@ -248,14 +239,74 @@ to include notes in the push or pull commands use --notes flag.
   # By default, Git does not automatically push tags to remote repositories, to push tages:
   git push --tags
   ```
-### Sharing and Updating Projects
-* Fetch: retrieve and download the latest changes from a remote repository without merging them into your local branches. updates the remote tracking branches in your local repository. These branches, usually named origin/<branch-name>. you can examine the fetched changes using commands like `git log origin/<branch-name>`
+## Sharing and Updating Projects
+### Fetch:
+ retrieve and download the latest changes from a remote repository without merging them into your local branches. updates the remote tracking branches in your local repository. These branches, usually named origin/<branch-name>. you can examine the fetched changes using commands like `git log origin/<branch-name>`
   ```terminal
   git fetch <remote> <branch>
   ```
   <remote> and <branch> are optional.
-### Inspection and Comparison
-* Show:to display detailed information about a specific Git object, such as a commit, tag, or tree.
+
+### Pull:
+It is a combination of two commands: git fetch and git merge. 
+  ```terminal
+  git pull <remote> <branch>
+  ```
+
+  * Some important flags:
+    1. --rebase: Fetching changes from the remote repository. but then instead of merging you make a rebase so that we have a linear commit history.
+    2. --ff-only: If the remote branch has additional commits that are not in your local branch, the command will fail instead of creating a merge commit.
+    3. --no-commit: Fetches the changes but doesn't automatically create a merge commit. It leaves the changes after mergin as uncommitted.
+
+### Push:
+is used to upload local branch commits to a remote repository.
+```git
+git push <remote> <branch>
+```
+* -u flag sets up the remote branch as the upstream branch for your local branch. It enables you to use git pull and git push without specifying the remote and branch names in the future.
+--tags and --notes were metioned earlier in this file.
+
+### Remote:
+Manage set of tracked repositories, and here are some useful use cases:
+  * To list remote repos:
+  ```cmd
+  git remote -v
+  ```
+
+  * To link the local repository to an empty GitHub repository. After executing this command the <url> will be saved as a remote repo with the name <name>.
+  ```cmd
+  git remote add <name> <url>
+  ```
+
+  * To change the url of an existing remote use:
+  ```cmd
+  git remote set-url <name> <url>
+  ```
+
+  * To show the url of an existing remote:
+  ```cmd
+  git remote get-url <name> 
+  ```
+
+  * Rename a saved remote repo: 
+  ```git
+  git remote rename <old> <new>
+  ```
+
+  * Remove a saved remote repo:
+  ```git
+  git remote remove <name>
+  ```
+
+
+## Inspection and Comparison
+### Show:
+to display detailed information about a specific Git object, such as a commit, tag, or tree.
   ```terminal
   git show <object>
   ```
+### Describe:
+
+## Patching
+### rebase:
+### revert:
