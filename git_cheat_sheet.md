@@ -40,24 +40,38 @@ git config --global color.ui auto
 git clone [url] [directory]
 ```
 ## Basic Snapshotting
-* Add file(s) contents from working tree to the index (staging area)
+### Add:
+Add file(s) contents changed in the working tree to the index (staging area)
 ```cmd
 git add [file]
 git add -A
 ```
 
-* Show the working tree status
+### Status:
+provide you with a summary of the current state, including branch information, staging area and untracked files.
 ```cmd
 git status
 ```
 
-* Show changes between commits, commit and working tree, branches, etc
-```cmd
-git diff <commit-hash-1> <commit-hash-2>
-git diff <branch-name-1> <branch-name-2>
-# Diff between the staging area(index) and the last commit:
-git diff --staged
-```
+### Diff:
+show the differences between different states in your Git repository such as commits, commit and working tree, branches, etc.
+Here are some of its use cases:
+  1. diff between two commits:
+  ```git
+  git diff <commit1> <commit2>
+  ```
+  2. diff between working tree and the staging are:
+  ```cmd
+  git diff
+  ```
+  3. diff between staging area and last commit:
+  ```git
+  git diff --staged
+  ```
+  4. diff between specific commit and working directory:
+  ```git
+  git diff <commit>
+  ```
 
 ### Commit: some of its use cases are
   1. Record changes saved in the saging area(index) to the repository
