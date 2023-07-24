@@ -86,7 +86,7 @@ Here are some of its use cases:
 ### notes
 ```terminal
 # add notes to commit
-git notes add "note" <commit>
+git notes add -m "note" <commit>
 # show commit notes
 git notes show <commit>
 # to list all the notes in the repository
