@@ -146,7 +146,7 @@ move or rename a file or directory in both the working directory and the Git rep
   git mv <source> <destination>
 ```
 
-### Branching and Merging
+## Branching and Merging
 ### Branch: can be used to:
   1. List branches
   ```terminal
