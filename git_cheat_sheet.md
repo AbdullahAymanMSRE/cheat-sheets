@@ -92,7 +92,7 @@ git notes show <commit>
 # to list all the notes in the repository
 git notes list
 ```
-to include notes in the push or pull commands use --notes flag.
+to include notes in the push or pull commands add refs/notes/commits at the end of the command.
 
 ### Restore: can be used to:
   1. undo the effect of git add (unstage changes).
