@@ -103,13 +103,9 @@ to include notes in the push or pull commands add refs/notes/commits at the end 
   ```terminal
   git restore <files>
   ```
-  3. restore file to the state of a specific commit.
+  3. restore file to the state of a specific commit or branch.
   ```terminal
-  git restore --source=<commit> <files>
-  ```
-  4. restore files from a specific branch or tag.
-  ```terminal
-  git restore --source=<branch> <files>
+  git restore --source=<commit-or-branch> <files>
   ```
   Note: in all of the last commands you can use dot "." instead of <files> to implement the command for all files
 ### Reset:
