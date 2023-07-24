@@ -170,11 +170,10 @@ move or rename a file or directory in both the working directory and the Git rep
   git branch --no-merged  
   ```
 ### Checkout: can be used to:
-  1. Switch to a branch
+  1. Switch to a branch. Add -b flag to create the branch and switch to it.
   ```terminal
   git checkout <branch-name>
   ```
-  add -b flag to create the branch and switch to it.
   2. Overwrite working tree with the contents in the index (discard changes).
   ```terminal
   git checkout <files>
@@ -183,22 +182,21 @@ move or rename a file or directory in both the working directory and the Git rep
   ```terminal
   git checkout <commit> -- <file>
   ```
-  4. Detach HEAD and checkout a specific commit
+  4. Detach HEAD and checkout a specific commit. This command detaches the HEAD pointer from any branch and directly points to the specified <commit>.
+  note: to undo this command write `git switch -`
   ```terminal
   git checkout <commit>
   ```
-  This command detaches the HEAD pointer from any branch and directly points to the specified <commit>.
-  note: to undo this command write `git switch -`
+  
   5. Switch to a remote branch
   ```terminal
   git checkout <remote>/<branch-name>
   ```
 ### Switch: can be used to:
-  1. switch to a branch
+  1. switch to a branch. Add -c flag to create the branch adn switch to it
   ```terminal
   git switch <branch-name>
   ```
-  add -c flag to create the branch adn switch to it
   2. Restore files from a specific commit
   ```terminal
   git switch <commit> -- <file>
