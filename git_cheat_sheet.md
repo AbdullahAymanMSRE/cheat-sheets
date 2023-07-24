@@ -140,7 +140,8 @@ to include notes in the push or pull commands add refs/notes/commits at the end 
   git rm --cached <file>
   ```
   the -r tag means recursively which is used to remove a directory with all its contents.
-### move or rename a file or directory in both the working directory and the Git repository. It is a convenient way to perform a file or directory rename while preserving the file's history.
+### Mv:
+move or rename a file or directory in both the working directory and the Git repository. It is a convenient way to perform a file or directory rename while preserving the file's history.
 ```terminal
   git mv <source> <destination>
 ```
