@@ -192,16 +192,11 @@ move or rename a file or directory in both the working directory and the Git rep
   ```terminal
   git checkout <remote>/<branch-name>
   ```
-### Switch: can be used to:
-  1. switch to a branch. Add -c flag to create the branch adn switch to it
+### Switch: 
+it is used to switch to a branch. Add -c flag to create the branch and switch to it
   ```terminal
   git switch <branch-name>
   ```
-  2. Restore files from a specific commit
-  ```terminal
-  git switch <commit> -- <file>
-  ```
-  if '-- <file>' is removed, it will Detach HEAD and switch to a specific commit. to  undo that write `git switch -`
 ### Merge: Join two or more development histories together:
   ```terminal
   # Switch to the branch where you want to merge changes
