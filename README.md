@@ -8,3 +8,4 @@
 ## Git Cheat Sheet:
 ### References:
 * https://git-scm.com/docs
+* https://youtube.com/playlist?list=PLDoPjvoNmBAw4eOj58MZPakHjaO3frVMF
