@@ -227,7 +227,7 @@ it is used to switch to a branch. Add -c flag to create the branch and switch to
   # to apply a stash and remove it use:
   git stash pop <stash> #default also is the last one.
   # to discard a stash
-  git discard <stash>
+  git stash drop <stash>
   ```
 ### Tag: Create, list, delete or verify a tag object 
   ```terminal
