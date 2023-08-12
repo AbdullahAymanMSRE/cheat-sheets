@@ -337,9 +337,9 @@ Assume the following history exists and the current branch is "topic":
          /
     D---E---F---G master
 
-From this point, the result of the following command:
+From this point, the result of the following command if run in the topic branch:
 ```git
-git rebase <branch>
+git rebase master
 ```
 would be:
 
