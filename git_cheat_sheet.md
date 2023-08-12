@@ -197,17 +197,22 @@ it is used to switch to a branch. Add -c flag to create the branch and switch to
   ```terminal
   git switch <branch-name>
   ```
-### Merge: Join two or more development histories together:
+### Merge: 
+Join two or more development histories together. For example to Merge changes from another branch into the current branch:
   ```terminal
-  # Switch to the branch where you want to merge changes
-  git checkout <branch-to-merge-into>
-  # Merge changes from another branch into the current branch
   git merge <branch-to-merge>
-  # If you encounter issues during a merge and want to cancel it, you can use:
-  git merge --abort
   ```
-  When Git encounters conflicting changes during a merge, it pauses the merge process and highlights the conflicting sections in the affected files. You need to manually edit and resolve the conflicts by choosing which changes to keep. After resolving conflicts, save the files and stage them using git add, then run git merge --continue to complete the merge commit.
-  It's important to note that the git merge command creates a new commit that represents the merge result.
+  * We can have two cases in the above command:
+    1. First case: when the current branch have some new commits and the merged branch also has new commit. `git merge` in this case creates a new commit for the merge as shown in the image:
+    ![alt text](https://wac-cdn.atlassian.com/dam/jcr:c6db91c1-1343-4d45-8c93-bdba910b9506/02%20Branch-1%20kopiera.png?cdnVersion=1160").
+    2. Second case: when there is a linear path from the current branch tip to the target branch. Instead of “actually” merging the branches, all Git has to do to integrate the histories is move (i.e., “fast forward”) the current branch tip up to the target branch tip. This is called fast forward merge as shown below:
+    ![alt text](https://wac-cdn.atlassian.com/dam/jcr:d90f2536-7951-4e5e-ab79-f45a502fb4c8/03-04%20Fast%20forward%20merge.svg?cdnVersion=1160)
+  
+  * Some important flags:
+    1. --no-ff: stands for no fast forwarding. It creates a new commit for the merge even if fast forward merging is possible.
+  * Merge conflicts:
+    When Git encounters conflicting changes during a merge, it pauses the merge process and highlights the conflicting sections in the affected files. You need to manually edit and resolve the conflicts by choosing which changes to keep. After resolving conflicts, save the files and stage them using git add, then run `git merge --continue` to complete the merge commit.
+    If you encounter issues during a merge and want to cancel it, you can use `git merge --abort`.
 ### Log: show commit logs.
   ```terminal
   git log
