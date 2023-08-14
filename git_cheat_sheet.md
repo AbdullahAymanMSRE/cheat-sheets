@@ -347,6 +347,22 @@ would be:
                  /
     D---E---F---G master
 
+Assume again the following history:
+
+          A---B---C topic
+         /
+    D---E---F---G master
+    
+however this time we will assume that the current branch is master. If we run:
+```git
+git rebase topic
+```
+would be:
+
+                       topic
+                     /
+    D---E---A---B---C---F---G master
+    
 In case of conflict, `git rebase` will stop at the first problematic commit and leave conflict markers in the tree, After resolving the conflict manually and updating the index with the desired resolution, you can continue the rebasing process with
 ```git
 git rebase --continue
