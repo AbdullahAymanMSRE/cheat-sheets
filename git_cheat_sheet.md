@@ -29,9 +29,24 @@ git config --global user.name "[name]"
 git config --global user.email "[email address]"
 ```
 
+* Create shortcut for a Git command.
+```git
+git config --global alias.<alias-name> <git-command>
+```
+
+* Set text editor used by commands for all users on the machine. (e.g. vi)
+```git
+git config --system core.editor <editor>
+```
+
 * Enable helpful colorization of command line output
 ```cmd
 git config --global color.ui auto
+```
+
+* Open the global configuration file in a text editor for manual editing.
+```git
+git config --global --edit
 ```
 
 ## Getting and Creating Projects
