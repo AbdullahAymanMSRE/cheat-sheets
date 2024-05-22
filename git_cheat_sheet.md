@@ -63,13 +63,13 @@ git add -A
 ```
 
 ### Status:
-provide you with a summary of the current state, including branch information, staging area and untracked files.
+provide you with a summary of the current state, including  information, staging area and untracked files.
 ```cmd
 git status
 ```
 
 ### Diff:
-show the differences between different states in your Git repository such as commits, commit and working tree, branches, etc.
+show the differences between different states in your Git repository such as commits, commit and working tree, es, etc.
 Here are some of its use cases:
   1. diff between two commits:
   ```git
@@ -118,21 +118,21 @@ to include notes in the push or pull commands add refs/notes/commits at the end 
   ```terminal
   git restore <files>
   ```
-  3. restore file to the state of a specific commit or branch.
+  3. restore file to the state of a specific commit or .
   ```terminal
-  git restore --source=<commit-or-branch> <files>
+  git restore --source=<commit-or-> <files>
   ```
   Note: in all of the last commands you can use dot "." instead of <files> to implement the command for all files
 ### Reset:
-  1. Move the branch pointer to the specified commit, preserving the changes in the staging area and working directory. The changes from subsequent commits become unstaged, allowing you to recommit them.
+  1. Move the  pointer to the specified commit, preserving the changes in the staging area and working directory. The changes from subsequent commits become unstaged, allowing you to recommit them.
   ```terminal
   git reset --soft <commit>
   ```
-  2. Move the branch pointer to the specified commit, resetting the staging area to match the commit. The changes are kept in the working directory as unstaged changes.
+  2. Move the  pointer to the specified commit, resetting the staging area to match the commit. The changes are kept in the working directory as unstaged changes.
   ```terminal
   git reset --mixed <commit>
   ```
-  3. Move the branch pointer to the specified commit, resetting both the staging area and the working directory to match the commit. This discards all changes after the specified commit.
+  3. Move the  pointer to the specified commit, resetting both the staging area and the working directory to match the commit. This discards all changes after the specified commit.
   ```terminal
   git reset --hard <commit>
   ```
@@ -178,6 +178,10 @@ move or rename a file or directory in both the working directory and the Git rep
   4. Delete a branch
   ```terminal
   git branch -d <branch-name>
+  ```
+  and to delete it on the remote repo:
+  ```terminal
+  git push origin -d 'branch-name'
   ```
   5. Show branches that has/has not been merged to current branch
   ```terminal
