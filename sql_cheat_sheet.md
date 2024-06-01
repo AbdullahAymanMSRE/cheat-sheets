@@ -188,8 +188,9 @@ ON UPDATE CASCADE;
 tags that can be used with ON UPDATE and ON DELETE:
 1. CASCADE
 2. SET NULL
-3. NO ACTION
-4. RESTRICT: prevent
+3. SET DEFAULT
+4. NO ACTION
+5. RESTRICT: prevent
 to delete the primary key constraint:
 ```sql
 ALTER TABLE tableName DROP FOREIGN KEY columnName;
